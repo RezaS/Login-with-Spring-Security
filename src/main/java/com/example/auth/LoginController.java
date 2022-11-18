@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoginController {
 
     @PostMapping("login")
-    public ResponseEntity<String> login(User user) {
+    public ResponseEntity<String> login(User data) {
+        User user = new User();
+        user.setUsername(data.getUsername());
+        user.setPassword(data.getPassword());
         return ResponseEntity.ok("Welcome");
     }
 }
